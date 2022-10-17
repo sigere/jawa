@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  db:
+    container_name: jawa_db
+    image: mariadb:10.9
+    restart: always
+    environment:
+      MARIADB_ROOT_PASSWORD: root
+      MARIADB_DATABASE: jawa
+    ports:
+      - '4306:3306'
+    volumes:
+      - jawa-db:/var/lib/mysql
+
+volumes:
+  jawa-db:
+    name: jawa-db
